@@ -37,10 +37,24 @@ class Main {
       return "0";
   }
 
-  public static void main (String[] args) {  
-    // keep this function call here     
+  public static void main (String[] args) {   
     Scanner s = new Scanner(System.in);
     System.out.print(BracketMatcher(s.nextLine())); 
   }
 
 }
+
+//Solution2;
+
+public static int BracketMatcher(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '(') {
+                count++;
+            } else if (str.charAt(i) == ')') {
+                count--;
+            }
+            if (count < 0) return 0;
+        }
+        return count == 0 ? 1 : 0;
+    }
